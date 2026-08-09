@@ -1,0 +1,55 @@
+---
+title: "How Yay-me Stores Your Data Locally and Privately"
+sidebarTitle: "Local Storage"
+description: "Yay-me stores all your achievements in your browser's localStorage — no servers, no accounts, no data collection. Your wins stay on your device."
+---
+
+Yay-me is built on a simple promise: your achievements belong to you, and only you. Every micro-win you log is written directly into your browser's `localStorage` — a storage area that never leaves your device. There is no backend, no user account, and no network request involved in saving or reading your data. The Yay-me team has no access to what you log, because it is never sent anywhere in the first place.
+
+## What is stored
+
+All of your achievements are stored under a single localStorage key: **`yay-me:achievements`**. The value is a JSON array where each item represents one logged achievement.
+
+Every achievement record contains the following fields:
+
+| Field       | Type             | Description                                                   |
+| ----------- | ---------------- | ------------------------------------------------------------- |
+| `id`        | `string` (UUID)  | A unique identifier generated at the moment you save the win. |
+| `text`      | `string`         | The achievement text you typed in.                            |
+| `createdAt` | `string` (ISO 8601) | The exact date and time the achievement was saved.         |
+| `tags`      | `string[]`       | Optional — category tags added by the AI celebration feature. |
+
+```json Example achievement record
+{
+  "id": "3f2a1b4c-...",
+  "text": "Finished the monthly report before lunch",
+  "createdAt": "2025-01-15T14:32:00.000Z",
+  "tags": ["trabalho", "produtividade"]
+}
+```
+
+## What this means for you
+
+Because everything lives in your browser and nowhere else, using Yay-me comes with a set of strong privacy guarantees:
+
+- **No account or login required.** You open the app and start logging — no sign-up flow, no email address, no password.
+- **Your data never leaves your device.** Achievements are read from and written to your local browser storage only. No data is transmitted to any server.
+- **No one can see your achievements — including us.** Because Yay-me never receives your data, the team behind the app has no visibility into anything you log.
+- **Works fully offline once loaded.** As a Progressive Web App, Yay-me runs entirely in the browser. After the initial load, an internet connection is not required to log or review your achievements.
+
+## Data persistence limits
+
+Local storage is powerful, but it has boundaries you should be aware of. Your data exists only as long as the browser keeps it — certain actions will erase it permanently.
+
+- **Clearing browser data or site data erases achievements.** Actions like "Clear browsing data", "Clear site data", or "Reset site permissions" in your browser settings will delete the `yay-me:achievements` key along with everything else stored for the site.
+- **Uninstalling and reinstalling the PWA erases achievements.** If you remove the installed PWA and reinstall it, the associated localStorage is cleared. Your history does not carry over automatically.
+- **Data is specific to one browser on one device.** Your achievements on Chrome on your laptop are completely separate from Safari on your phone. There is no automatic sync between browsers or devices.
+- **Private / incognito mode does not persist data between sessions.** If you use Yay-me in a private browsing window, your achievements will be gone as soon as you close that window.
+
+<Warning>
+  Clearing your browser's site data or cache **will permanently delete your achievements**. This action cannot be undone. Always export a backup before clearing any browser data.
+</Warning>
+
+<Tip>
+  Protect your streak and your history by keeping a backup handy. See [Export a Backup](/data/backup-export) to learn how to download your achievements as a JSON file in seconds.
+</Tip>

@@ -1,0 +1,82 @@
+---
+title: "Install Yay-me as an App on Your Phone or Desktop"
+sidebarTitle: "Install App"
+description: "Add Yay-me to your home screen as a Progressive Web App on iOS, Android, or desktop Chrome for a full-screen, offline-ready experience."
+---
+
+Yay-me is a Progressive Web App (PWA), which means you can install it on any device and get an experience that feels just like a native app — without going through an app store. Once installed, Yay-me opens in full-screen mode, works offline, and sits on your home screen or in your app drawer for one-tap access any time you have a win to log.
+
+<Tabs>
+  <Tab title="iOS">
+    Installing on iOS requires Safari — the PWA install option is only available through Apple's built-in browser.
+
+    <Steps>
+      <Step title="Open Yay-me in Safari">
+        Launch **Safari** on your iPhone or iPad and navigate to [yay-me.netlify.app](https://yay-me.netlify.app). Make sure you're using Safari and not Chrome or another browser, as iOS only allows home screen installs from Safari.
+      </Step>
+      <Step title="Tap the Share button">
+        Tap the **Share** icon at the bottom of the screen (a square with an arrow pointing upward). If you're on an iPad, the Share button is in the toolbar at the top.
+      </Step>
+      <Step title="Tap Add to Home Screen">
+        Scroll through the share sheet and tap **Add to Home Screen**. You can edit the name if you like — the default is "Yay-me".
+      </Step>
+      <Step title="Confirm the installation">
+        Tap **Add** in the top-right corner. Yay-me will appear on your home screen as an app icon. Open it from there to launch in full-screen mode.
+      </Step>
+    </Steps>
+
+    <Note>
+      You must use **Safari** on iOS. Installing from Chrome, Firefox, or other browsers on iOS is not supported by Apple and the "Add to Home Screen" option will not appear in those browsers.
+    </Note>
+  </Tab>
+  <Tab title="Android">
+    Chrome on Android handles PWA installation and will often show an automatic install prompt when you visit the app.
+
+    <Steps>
+      <Step title="Open Yay-me in Chrome">
+        Launch **Chrome** on your Android device and go to [yay-me.netlify.app](https://yay-me.netlify.app).
+      </Step>
+      <Step title="Look for the install banner or open the menu">
+        Chrome may automatically show an **"Add Yay-me to Home screen"** banner at the bottom of the screen — tap it to proceed. If the banner doesn't appear, tap the **three-dot menu** (⋮) in the top-right corner of the browser.
+      </Step>
+      <Step title="Tap Add to Home Screen">
+        In the menu, tap **Add to Home screen**. You can rename the shortcut if you wish.
+      </Step>
+      <Step title="Confirm the installation">
+        Tap **Add** in the confirmation dialog. Yay-me will be added to your home screen and app drawer. Open it from there for the full-screen experience.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Desktop (Chrome / Edge)">
+    On desktop, Chrome and Edge both surface a dedicated install button directly in the address bar when a PWA is available.
+
+    <Steps>
+      <Step title="Open Yay-me in Chrome or Edge">
+        Navigate to [yay-me.netlify.app](https://yay-me.netlify.app) in **Google Chrome** or **Microsoft Edge**.
+      </Step>
+      <Step title="Click the install icon in the address bar">
+        Look for a small **install icon** (a monitor with a down arrow, or a plus sign) at the right end of the address bar. Click it to open the install prompt. If you don't see the icon, open the browser menu (⋮ in Chrome, or the `...` menu in Edge) and look for **"Install Yay-me"** or **"Install app"**.
+      </Step>
+      <Step title="Confirm the installation">
+        Click **Install** in the dialog that appears. Yay-me will open in its own window and be added to your taskbar, Start menu, or desktop depending on your operating system.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## What changes after installing?
+
+Once Yay-me is installed as a PWA, a few things improve compared to using it in a browser tab:
+
+- **Full-screen mode** — the browser toolbar and address bar disappear, giving you a clean, app-like interface.
+- **Works offline** — the Service Worker caches everything needed to log achievements, view your timeline, and see your streak even when you have no internet connection. GIFs fall back to local assets when offline.
+- **Home screen and app drawer access** — launch Yay-me with a single tap, just like any other app on your device.
+- **Faster loading** — cached assets load from the Service Worker on repeat visits, so the app feels nearly instant.
+
+<Note>
+  Clearing your browser's site data or cache — even when using the PWA — will erase your achievement history, because all data is stored in `localStorage`. Before clearing anything, tap **Export backup** in the app footer to download a `.json` copy of your achievements that you can reimport later.
+</Note>
+
+<Info>
+  The app is identical whether you use it installed as a PWA or directly in a browser tab. Every feature — achievement logging, celebrations, AI phrases, streak tracking, backup, and notifications — works exactly the same in both modes.
+</Info>

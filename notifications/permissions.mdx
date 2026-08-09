@@ -1,0 +1,67 @@
+---
+title: "Manage Browser Notification Permissions for Yay-me"
+sidebarTitle: "Permissions"
+description: "Grant or revoke notification permissions for Yay-me in your browser settings. Notifications are optional — the app works fully without them."
+---
+
+Yay-me requests notification permission so it can send you a single daily reminder to log your wins. Granting permission is entirely your choice — every core feature of the app, including logging achievements, viewing your history, celebrating wins, and tracking your streak, works completely without it. Notifications are a convenience, not a requirement.
+
+## Granting permission
+
+The first time Yay-me needs to send a notification, your browser displays a permission prompt asking whether you want to allow notifications from the site. Click **Allow** to enable daily reminders going forward.
+
+If you dismissed the prompt without choosing, or if you clicked **Block**, your browser will not show the prompt again automatically. In that case, you can re-enable notifications directly through your browser settings — the steps for each browser are in the section below.
+
+<Note>
+  Notification permissions are browser-specific. If you use Yay-me across multiple browsers or devices — for example, Chrome on your laptop and Safari on your iPhone — you will need to grant permission separately on each one.
+</Note>
+
+## Changing permissions
+
+Use the tab for your browser to find the exact steps to allow or update notification permissions for Yay-me.
+
+<Tabs>
+  <Tab title="Chrome">
+    1. Open Chrome and click the **three-dot menu** (⋮) in the top-right corner.
+    2. Go to **Settings** → **Privacy and security** → **Site settings**.
+    3. Under **Permissions**, click **Notifications**.
+    4. Find Yay-me's URL in the list (under **Block** or **Allowed** depending on your current setting).
+    5. Click the entry and change the permission to **Allow**.
+    6. Reload Yay-me — the next time you open the app, it will be able to send your daily reminder.
+  </Tab>
+  <Tab title="Firefox">
+    1. Open Firefox and click the **hamburger menu** (☰) in the top-right corner.
+    2. Go to **Preferences** (or **Settings** on Windows/Linux) → **Privacy & Security**.
+    3. Scroll down to **Permissions** and click **Settings…** next to **Notifications**.
+    4. Find Yay-me's URL in the list.
+    5. Use the dropdown next to it to change the status to **Allow**.
+    6. Click **Save Changes**, then reload Yay-me.
+  </Tab>
+  <Tab title="Safari (macOS)">
+    1. Open Safari and click **Safari** in the menu bar → **Preferences** (or **Settings** on macOS Ventura and later).
+    2. Click the **Websites** tab.
+    3. Select **Notifications** from the left sidebar.
+    4. Find Yay-me's URL in the list on the right.
+    5. Use the dropdown to change its permission to **Allow**.
+    6. Close Preferences and reload Yay-me.
+  </Tab>
+  <Tab title="iOS Safari">
+    1. Open your iPhone or iPad's **Settings** app (the system Settings, not Safari itself).
+    2. Scroll down and tap **Safari** → **Notifications** (or **Advanced** → **Website Notifications** depending on your iOS version).
+    3. Find Yay-me's URL in the list.
+    4. Tap it and toggle **Allow Notifications** on.
+    5. Return to Safari and reload Yay-me.
+
+    <Warning>
+      On iOS, Safari's web notification support requires iOS 16.4 or later, and the site must be added to your home screen as a PWA to receive notifications reliably. See [Install Yay-me as a PWA](/pwa-install) for setup instructions.
+    </Warning>
+  </Tab>
+</Tabs>
+
+## Revoking permission
+
+You can block notifications from Yay-me at any time by following the same steps above and setting the permission to **Block** (or **Deny**) instead of Allow. Yay-me handles this gracefully — once permission is revoked, no further notifications will be sent and no errors will appear in the app. All of your achievement data and streak history remain completely intact.
+
+<Info>
+  Notifications are entirely optional. Yay-me never requires notification permission to function — you can log achievements, celebrate wins, and track your streak without them. If you prefer a distraction-free experience, simply leave notifications off.
+</Info>

@@ -1,0 +1,154 @@
+---
+title: "Troubleshooting Common Yay-me Issues"
+sidebarTitle: "Troubleshooting"
+description: "Fix the most common issues with Yay-me — missing achievements, broken GIFs, notification problems, streak resets, and import errors."
+---
+
+Most issues with Yay-me trace back to browser settings, permissions, or cached data rather than anything wrong with the app itself. This page walks you through the most common problems and exactly what to do about each one.
+
+<Accordion title="My achievements disappeared">
+  **What likely happened:** Your browser's site data was cleared, you are opening the app in a different browser or on a different device, or you are using a private / incognito browsing window.
+
+  **What to do:**
+
+  <Steps>
+    <Step title="Check which browser you normally use">
+      Achievements are stored in the specific browser you originally used. If you normally use Chrome but opened Yay-me in Safari today, your data is not there — switch back to your usual browser.
+    </Step>
+    <Step title="Check whether you are in private mode">
+      Private / incognito windows do not persist `localStorage` between sessions. If you logged wins in a private window, that data is gone when you closed it. Open a regular (non-private) window going forward.
+    </Step>
+    <Step title="Restore from a backup file">
+      If you previously exported a `.json` backup, tap **"Importar backup"** in the app footer and select your backup file to restore your achievements.
+    </Step>
+  </Steps>
+
+  <Warning>
+    If your browser's site data was cleared and you do not have an exported backup file, your achievement data cannot be recovered. Going forward, export a backup regularly using the **"Exportar backup"** button in the app footer.
+  </Warning>
+</Accordion>
+
+<Accordion title="The celebration GIF isn't loading">
+  **What likely happened:** You are offline, the GIPHY API hit a rate limit, or your connection is too slow for the 2-second request timeout.
+
+  **What to do:** In most cases, you do not need to do anything. Yay-me detects when the GIPHY API request fails and automatically swaps in a random GIF from a local fallback collection — so if you see any GIF in the celebration modal, everything is working as intended.
+
+  If no GIF appears at all:
+
+  <Steps>
+    <Step title="Refresh the page">
+      A simple page reload clears any temporary rendering issue. Try logging a new achievement and see if the GIF appears.
+    </Step>
+    <Step title="Check your internet connection">
+      If you are offline, local fallback GIFs will be used. If you are online but on a very slow connection, the GIF may take a moment to render after the modal opens.
+    </Step>
+  </Steps>
+
+  <Note>
+    The fallback GIF list is bundled with the app and works completely offline. You will never see a blank celebration modal because of a failed API call.
+  </Note>
+</Accordion>
+
+<Accordion title="I'm not getting the personalised AI phrase">
+  **What likely happened:** The AI service was temporarily unavailable, the request timed out (the limit is 8 seconds), or your network connection was too slow to reach the server in time.
+
+  **What to do:** Nothing — this is expected behaviour. Yay-me opens the celebration modal immediately with a phrase from its curated static list. If the AI response arrives within the time limit, it upgrades the phrase in place. If it doesn't, the static phrase stays and your celebration is completely unaffected.
+
+  <Info>
+    The personalised AI phrase is a bonus feature, not a core dependency. The app is deliberately designed so that AI availability never blocks or delays your celebration.
+  </Info>
+
+  If you consistently never see an AI phrase even on a fast connection, check that you are using the hosted version of Yay-me (not a local dev build without the required environment token configured).
+</Accordion>
+
+<Accordion title="Notifications are not showing up">
+  **What likely happened:** Notification permission was not granted, your browser is blocking notifications for the Yay-me URL, or you are on iOS where web notification support has additional limitations.
+
+  **What to do:**
+
+  <Steps>
+    <Step title="Check browser notification permission">
+      Open your browser's site settings for the Yay-me URL and confirm that **Notifications** are set to **Allow** (not Blocked or Ask). In Chrome, click the padlock icon in the address bar → Site settings → Notifications.
+    </Step>
+    <Step title="Check your OS-level notification settings">
+      Even if the browser has permission, your operating system may be blocking notifications for that browser. On macOS, go to **System Settings → Notifications** and confirm your browser is allowed to send notifications. On Windows, check **Settings → System → Notifications**.
+    </Step>
+    <Step title="Install as a PWA (especially on iOS)">
+      iOS imposes significant restrictions on notifications from websites running in a browser tab. Installing Yay-me as a Progressive Web App via **Share → Add to Home Screen** may enable notification support that is otherwise unavailable in the browser.
+    </Step>
+  </Steps>
+
+  <Warning>
+    On iOS, browser-based notifications are not available at all in some older OS versions. Installing Yay-me as a PWA (added to your Home Screen) is required for notifications to function on iPhone and iPad.
+  </Warning>
+</Accordion>
+
+<Accordion title="My streak reset unexpectedly">
+  **What likely happened:** No achievement was logged during a full calendar day (midnight to midnight in your local timezone), which caused the streak counter to reset.
+
+  **How streaks work:** A streak counts consecutive calendar days, each with at least one logged achievement. The logic is forgiving: if today has no achievement yet, the streak remains alive as long as yesterday had one. The streak only breaks once a **complete day passes with nothing logged**.
+
+  **What to do:**
+
+  <Steps>
+    <Step title="Verify your device clock and timezone">
+      Streak calculations use your device's local system time. If your clock is wrong or your timezone is set incorrectly, day boundaries will be off. Check **Settings → Date & Time** on your device and ensure the timezone matches where you actually are.
+    </Step>
+    <Step title="Check for a missed day">
+      Look at your achievement list and see if there is a calendar day with no entries. Even one missed day is enough to break a streak. The fix is simply to log a win today and start building again.
+    </Step>
+  </Steps>
+
+  <Tip>
+    Logging at 11:59 PM one night and again at 12:01 AM the next morning counts as two separate consecutive days — so back-to-back late-night wins keep your streak alive and growing.
+  </Tip>
+</Accordion>
+
+<Accordion title="Import backup shows an error">
+  **What likely happened:** The file you selected is not a valid Yay-me backup — it may be in the wrong format, have been manually edited, or come from a different application.
+
+  **What to do:**
+
+  <Steps>
+    <Step title="Use only files exported from Yay-me">
+      Only import `.json` files that were downloaded by tapping **"Exportar backup"** inside Yay-me. Files from other apps, renamed files, or files with a different structure will be rejected.
+    </Step>
+    <Step title="Check the file is valid JSON">
+      If you edited the file manually, open it in a text editor and verify it is valid JSON — no trailing commas, all strings in double quotes, and brackets properly closed. You can paste the contents into a JSON validator online to check.
+    </Step>
+    <Step title="Verify the data structure">
+      A valid Yay-me backup is a JSON array of objects. Each object must have at least these three fields:
+      - `id` — a string (UUID)
+      - `text` — a string (your achievement text)
+      - `createdAt` — a string (ISO 8601 timestamp, e.g. `"2025-01-15T14:30:00.000Z"`)
+
+      Any object missing one of these fields will cause the entire import to be rejected, leaving your existing data untouched.
+    </Step>
+  </Steps>
+
+  <Note>
+    Import is non-destructive. If the file is invalid, Yay-me rejects it and makes no changes to your existing achievements. If the file is valid but contains achievements you already have, duplicates are silently skipped — only new entries are added.
+  </Note>
+</Accordion>
+
+<Accordion title="The app won't load / shows a blank screen">
+  **What likely happened:** The Service Worker has cached an outdated version of the app, or the cached files have become corrupted.
+
+  **What to do:**
+
+  <Steps>
+    <Step title="Unregister the Service Worker">
+      Open your browser's developer tools (press `F12` or `Cmd+Option+I` on Mac), navigate to the **Application** tab, then select **Service Workers** in the left sidebar. Click **Unregister** next to the Yay-me entry.
+    </Step>
+    <Step title="Reload the page">
+      After unregistering, do a hard reload: press `Ctrl+Shift+R` on Windows/Linux or `Cmd+Shift+R` on Mac. The app will re-download a fresh copy of all assets.
+    </Step>
+    <Step title="Clear site data if the problem persists">
+      In the same **Application** tab, select **Storage** in the left sidebar and click **Clear site data**. This wipes cached files and forces a completely fresh load.
+    </Step>
+  </Steps>
+
+  <Warning>
+    Clearing site data will also erase your achievements from `localStorage`. Export a backup first if you can — open DevTools → Console and run `localStorage.getItem('yay-me:achievements')` to copy your raw data before clearing.
+  </Warning>
+</Accordion>

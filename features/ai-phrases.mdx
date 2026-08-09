@@ -1,0 +1,69 @@
+---
+title: "AI-Powered Celebration Phrases for Every Achievement"
+sidebarTitle: "AI Phrases"
+description: "Yay-me uses an AI model to generate a personalised, funny phrase about your specific win moments after you save — no API key required from you."
+---
+
+When you save an achievement in Yay-me, the celebration modal doesn't just show a generic "well done" — it generates a personalised punchline written specifically about what you described. These AI phrases are short, lighthearted, and tied to the concrete details of your win. No API key, no account, and no setup required on your end.
+
+## How It Works
+
+The whole process is designed to feel instant, then get better in the background.
+
+<Steps>
+  <Step title="You save an achievement">
+    As soon as you tap Save (or press Enter), your achievement is written to local storage. Nothing waits for the AI.
+  </Step>
+  <Step title="The celebration modal opens immediately">
+    The modal appears at once with a GIF and a fun phrase picked at random from a curated static list. You're already celebrating before the AI has done anything.
+  </Step>
+  <Step title="Your text is sent to the AI">
+    Behind the scenes, Yay-me sends your achievement text to a serverless function, which forwards it to an AI model. Your API token is never exposed in the app — it stays server-side on Netlify.
+  </Step>
+  <Step title="The phrase upgrades — if and when the AI responds">
+    When the AI replies (usually within a few seconds), the phrase in the modal smoothly updates to the personalised punchline. The transition is seamless — a subtle animation, no flicker, no spinner.
+  </Step>
+  <Step title="Tags are applied to your achievement card">
+    Along with the phrase, the AI returns up to 3 category tags describing the type of win (for example `trabalho`, `saúde`, or `exercício`). These are saved to your achievement and appear as chips on the card in your list.
+  </Step>
+</Steps>
+
+## Tags
+
+Every achievement card can display up to 3 short tag chips, automatically categorising the type of win the AI detected in your text.
+
+<CardGroup cols={2}>
+  <Card title="Automatic" icon="wand-magic-sparkles">
+    Tags are applied without any action from you. Just describe your win and the AI figures out the categories.
+  </Card>
+  <Card title="Up to 3 per achievement" icon="tag">
+    The AI returns a maximum of 3 tags per achievement to keep cards clean and scannable.
+  </Card>
+  <Card title="Common categories" icon="layer-group">
+    Typical tags include `trabalho`, `saúde`, `família`, `estudos`, `exercício`, `casa`, `financeiro`, `social`, `autocuidado`, and `criatividade` — among others specific to your text.
+  </Card>
+  <Card title="Not manually editable" icon="lock">
+    Tags are assigned by the AI and cannot be added, removed, or edited by hand. If the AI is unavailable, no tags are applied.
+  </Card>
+</CardGroup>
+
+## When AI Is Unavailable
+
+Yay-me is built so the AI is always an upgrade, never a requirement.
+
+<Tabs>
+  <Tab title="AI Responds in Time">
+    If the AI model responds within 8 seconds, the phrase in the modal upgrades to a personalised punchline and up to 3 tags are attached to your achievement card.
+  </Tab>
+  <Tab title="AI Times Out or Fails">
+    If the AI takes longer than 8 seconds, is temporarily unavailable, or the service is down entirely, Yay-me simply keeps the static phrase that was already showing in the modal. Your achievement is saved normally — it just won't have tags attached. Nothing breaks, no error message appears, and no celebration is interrupted.
+  </Tab>
+</Tabs>
+
+<Note>
+  Your achievement text is sent to the AI service only to generate the celebration phrase and category tags. No data is stored by the AI service beyond the duration of the request, and your text never appears in Yay-me's servers or any database.
+</Note>
+
+<Tip>
+  Be specific in your achievement text — instead of "went to the gym", try "did 20 squats without dying". The AI picks up on concrete details to write a funnier, more personal phrase. Vague descriptions tend to produce more generic results.
+</Tip>

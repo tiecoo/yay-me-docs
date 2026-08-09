@@ -1,0 +1,78 @@
+{
+  "projectType": "saas",
+  "projectName": "Yay-me",
+  "projectDescription": "A privacy-first progressive web app that helps you log daily micro-wins, celebrate them with AI-powered phrases and GIFs, and track your consistency streak — all without an account or any data leaving your device.",
+  "theme": "almond",
+  "primaryColor": "#4f46e5",
+  "lightColor": "#eef2ff",
+  "darkColor": "#4338ca",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guide",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "pwa-install"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/logging-achievements",
+              "features/celebration-modal",
+              "features/streak-dashboard",
+              "features/ai-phrases"
+            ]
+          },
+          {
+            "group": "Your Data",
+            "pages": [
+              "data/local-storage",
+              "data/backup-export",
+              "data/backup-import"
+            ]
+          },
+          {
+            "group": "Notifications",
+            "pages": [
+              "notifications/daily-reminders",
+              "notifications/permissions"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "One-tap achievement logging with instant celebration modal",
+    "AI-generated personalised celebration phrases (powered by DeepSeek via Hugging Face)",
+    "Random celebratory GIFs via GIPHY integration with offline fallback",
+    "Streak dashboard showing current streak, personal record, and total achievements",
+    "Auto-tagging of achievements into categories (work, health, family, etc.)",
+    "100% local storage — no accounts, no servers, no data collection",
+    "Export and import JSON backups to safeguard your history",
+    "Daily browser notification reminders to keep the habit alive",
+    "PWA support — installable on iOS and Android, works fully offline"
+  ],
+  "publicApiSurface": [
+    "Achievement logging form (AchievementFormComponent)",
+    "Celebration modal with GIF + phrase (CelebrationModalComponent)",
+    "Streak & stats dashboard (StatsDashboardComponent)",
+    "Achievement list / timeline (AchievementListComponent)",
+    "Backup controls — Export & Import (BackupControlsComponent)",
+    "Netlify Function: POST /.netlify/functions/celebrate-phrase",
+    "localStorage key: yay-me:achievements",
+    "localStorage key: yay-me:last-notification"
+  ]
+}

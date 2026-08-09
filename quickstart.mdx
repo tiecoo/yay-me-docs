@@ -1,47 +1,36 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Yay-me in Under a Minute"
+sidebarTitle: "Quick Start"
+description: "Open Yay-me in your browser, log your first win, and watch the celebration modal fire — no sign-up or install required."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+You can be up and running with Yay-me in under a minute. There's nothing to install, nothing to configure, and no account to create. All you need is a modern browser and something worth celebrating — which, if you're reading this, you probably already have.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Open Yay-me in your browser">
+    Go to [yay-me.netlify.app](https://yay-me.netlify.app) in any modern browser — Chrome, Safari, Firefox, and Edge are all supported on both desktop and mobile. The app loads instantly and is ready to use straight away.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
+  <Step title="Type your first win and save it">
+    Tap or click the text input field, type whatever you accomplished today — it can be anything, big or small — then press the **Save Achievement** button or hit **Enter** on your keyboard.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
+  <Step title="Watch the celebration modal">
+    A celebration modal opens immediately. A fun GIF appears alongside a congratulatory phrase. In a moment, the phrase updates to an AI-generated quip personalised to exactly what you wrote. Tap the close button or click anywhere outside the modal when you're done celebrating.
+  </Step>
+  <Step title="Your achievement is saved and your streak begins">
+    Your win is now stored in your browser and appears at the top of your achievement timeline. The streak dashboard becomes visible once you have your first achievement logged — come back tomorrow to keep the streak alive.
   </Step>
 </Steps>
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  For the best mobile experience — full-screen mode, home screen access, and offline support — install Yay-me as a Progressive Web App. See the [Install App](/pwa-install) guide to do it in two taps.
 </Tip>
+
+## What just happened?
+
+When you pressed **Save**, Yay-me created an achievement object with a unique ID, the text you entered, and an ISO 8601 timestamp — all stored directly in your browser's `localStorage`. Nothing was sent to a server or tied to an account. The celebration modal opened immediately using a locally held phrase and fetched a GIF from GIPHY in the background. At the same time, an AI call generated a personalised phrase and up to three category tags for your achievement; when that response arrived, the phrase in the modal updated automatically and the tags were saved alongside your achievement.
+
+Once your first achievement exists, the streak dashboard appears at the top of the page. It shows a circular ring with your current consecutive-day streak, your all-time record, and your total achievement count — all calculated entirely from the data in your browser.
+
+<Note>
+  No account is needed — ever. All your data lives in your browser's `localStorage`. If you switch browsers, use a private/incognito window, or clear your browser data, your achievements will not carry over. Use the **Export backup** button in the app footer to save a copy of your history as a `.json` file you can restore later.
+</Note>

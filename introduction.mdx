@@ -1,0 +1,49 @@
+---
+title: "Yay-me: Track Micro-Wins Without an Account"
+sidebarTitle: "Introduction"
+description: "Yay-me is a privacy-first PWA for logging daily personal achievements. No sign-up, no cloud sync — your data stays on your device."
+---
+
+Yay-me is a lightweight, privacy-first Progressive Web App that turns your daily micro-wins into moments worth celebrating. You type what you accomplished, press save, and a celebration modal pops up — complete with a fun GIF and a personalised AI-generated phrase that riffs on exactly what you wrote. Everything you log is stored directly on your device, with no accounts, no servers, and no tracking involved whatsoever.
+
+## What you can do
+
+Yay-me packs a focused set of features designed to make habit-building feel rewarding rather than like a chore:
+
+- **Log achievements** — type any win, large or small, and save it in seconds.
+- **Celebration modal** — every save triggers an instant modal with a random celebratory GIF and a motivational phrase.
+- **AI-powered phrases** — after the modal opens, an AI-generated quip personalised to your specific win replaces the default phrase in the background, without blocking the experience.
+- **Auto-tags** — the same AI call returns up to three category tags (e.g. `work`, `health`, `family`) that appear as chips on each achievement card.
+- **GIF celebrations** — powered by the GIPHY API, with a curated local fallback library so celebrations still fire when you're offline.
+- **Streak dashboard** — a circular progress ring shows your current consecutive-day streak alongside your all-time record and total achievement count.
+- **Backup and restore** — export your entire history as a `.json` file and import it back at any time, with smart deduplication so reimporting the same file never creates duplicates.
+- **Daily reminder notifications** — opt-in browser notifications nudge you once a day to log something, so the habit sticks.
+- **Offline and PWA ready** — install Yay-me to your home screen and use it without an internet connection; core functionality works fully offline.
+
+## Privacy by design
+
+Yay-me was built from the ground up with one rule: your data never leaves your device. Every achievement you log — including its text, timestamp, and AI-generated tags — is written to your browser's `localStorage`. There is no backend database, no user account system, no analytics that tracks what you write, and no third-party service that receives your achievement content. The only external calls the app makes are to fetch a celebration GIF and to generate a personalised phrase, and neither of those calls includes any identifying information about you.
+
+## How it works
+
+The full flow from input to saved achievement looks like this:
+
+1. You type a win into the input field and press **Save** (or **Enter**).
+2. A unique ID and a timestamp are assigned to your achievement, and it is immediately written to `localStorage`.
+3. The celebration modal opens at once — a GIF loads from GIPHY (or from the local fallback if you're offline) and a default phrase is shown straight away.
+4. In the background, an AI call generates a personalised joke about your specific win and up to three category tags. When the response arrives, the phrase in the modal updates silently — if it doesn't arrive within 8 seconds or fails, the default phrase stays and no error is shown.
+5. The modal closes when you tap the button or click outside it.
+6. Your achievement appears at the top of the timeline, and the streak dashboard recalculates.
+
+<Note>
+  Because Yay-me uses browser `localStorage`, your achievements are tied to the specific browser and device you use. **Clearing your browser data, cache, or site storage will permanently delete your achievement history.** Use the **Export backup** button in the app footer to save a `.json` copy of your data before clearing anything.
+</Note>
+
+<CardGroup cols={2}>
+  <Card title="Quick Start" icon="rocket" href="/quickstart">
+    Log your very first win in under a minute — no setup required.
+  </Card>
+  <Card title="Logging Achievements" icon="trophy" href="/features/logging-achievements">
+    Dive deeper into how achievement logging, tags, and the timeline work.
+  </Card>
+</CardGroup>

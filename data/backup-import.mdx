@@ -1,0 +1,45 @@
+---
+title: "Import a Backup to Restore Your Achievements"
+sidebarTitle: "Import Backup"
+description: "Restore your Yay-me achievements from a previously exported JSON backup file. Imports are safe — duplicates are skipped automatically."
+---
+
+Whether you are moving to a new device, recovering from an accidental browser clear, or merging your history from a second browser, importing a backup brings all your achievements back in seconds. You select the file you previously exported, and Yay-me handles the rest — validating the contents, merging the new records with any data already on the device, and recalculating your streak so your progress is immediately up to date.
+
+## How to import
+
+<Steps>
+  <Step title="Open the Yay-me app">
+    Navigate to the Yay-me app in the browser where you want to restore your achievements. Scroll to the bottom of the page.
+  </Step>
+  <Step title="Tap Importar Backup">
+    Tap or click the **"Importar backup"** (Import backup) button in the footer of the app.
+  </Step>
+  <Step title="Select your backup file">
+    A file picker opens. Locate and select your `yay-me-backup-YYYY-MM-DD.json` file — the one you previously downloaded using the export feature.
+  </Step>
+  <Step title="Review the import summary">
+    Yay-me validates the file and merges the achievements into your local data. A summary message appears telling you exactly how many achievements were **imported** (new records added) and how many were **skipped** (already existed on this device). No changes are made until the entire file has been validated.
+  </Step>
+</Steps>
+
+## Duplicate handling
+
+Importing is designed to be safe no matter how many times you run it. Achievements are matched by their unique `id` field — a UUID that was generated when you originally logged each win.
+
+- If an achievement's `id` **does not exist** in your current local data, it is added.
+- If an achievement's `id` **already exists**, it is skipped — the existing record is never duplicated or overwritten.
+
+This means you can import the same backup file repeatedly without any risk of corrupting or inflating your achievement list. The operation is fully idempotent.
+
+## After importing
+
+Once the import completes, the merged achievements are sorted by `createdAt` date, newest first — the same order you see in the app's main list. Your **streak dashboard recalculates automatically**, so your current streak, longest streak, and total count all reflect the full merged history immediately. There is nothing extra to tap or refresh.
+
+<Warning>
+  Only import JSON files that were exported by Yay-me. Importing a file in a different format, or a file that has been manually edited in a way that breaks the expected structure, will show an error message and leave your existing data completely unchanged — nothing is written until the entire file passes validation.
+</Warning>
+
+<Tip>
+  It is always safe to re-import the same backup. If you are unsure whether a previous import completed successfully, just import again — duplicates are skipped automatically and no harm is done.
+</Tip>

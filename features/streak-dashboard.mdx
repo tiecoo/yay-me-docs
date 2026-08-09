@@ -1,0 +1,62 @@
+---
+title: "Track Your Consistency Streak and Achievement Stats"
+sidebarTitle: "Streak Dashboard"
+description: "The Yay-me streak dashboard shows your current daily streak, all-time best streak, and total achievements in a compact visual display."
+---
+
+Once you've logged your first achievement, a compact stats dashboard appears at the top of the app. It gives you three key numbers at a glance — no digging through menus, no separate screen to open. Everything you need to stay motivated and consistent is right there every time you open Yay-me.
+
+## The Three Dials
+
+The dashboard is laid out as three circular dials side by side, inspired by the compact "complication" style you'd find on a fitness watch.
+
+<CardGroup cols={3}>
+  <Card title="🏆 Personal Best" icon="trophy">
+    **Left dial** — your all-time longest streak, measured in days. This number only ever goes up.
+  </Card>
+  <Card title="🔥 Current Streak" icon="fire">
+    **Centre dial (large ring)** — days in a row you've logged at least one achievement. The circular ring fills progressively toward a 7-day goal.
+  </Card>
+  <Card title="✅ Total" icon="circle-check">
+    **Right dial** — the lifetime count of every achievement you've ever logged.
+  </Card>
+</CardGroup>
+
+<Tip>
+  The dashboard is hidden until you log your first achievement. Save your first win and it appears automatically.
+</Tip>
+
+## How Streaks Are Calculated
+
+Yay-me measures streaks by calendar day using your device's local clock. Here's exactly how it works:
+
+<Accordion title="You logged a win today">
+  Your current streak includes today. The count starts from the most recent continuous run of days leading up to and including today.
+</Accordion>
+
+<Accordion title="You haven't logged a win yet today">
+  Your streak is still alive. Yay-me looks back to yesterday first — if you logged at least one win yesterday, your streak is still counted as active. The current day only breaks your streak after midnight passes with no achievement at all.
+</Accordion>
+
+<Accordion title="You missed an entire day">
+  If a full calendar day (midnight to midnight, in your local timezone) passes with no achievement logged, your current streak resets to zero. Your personal best is preserved and will never decrease.
+</Accordion>
+
+The logic in plain terms: **you get until the end of every day to keep your streak alive.** No mid-day pressure — a win logged at 11:59 PM counts just as much as one logged at 7:00 AM.
+
+<Note>
+  Streak calculations use your device's local clock and timezone. If you travel across timezones, the calendar day boundaries will shift accordingly.
+</Note>
+
+## The 7-Day Ring
+
+The large circular ring around the centre dial visualises your current streak as progress toward a 7-day weekly goal.
+
+| Current Streak | Ring Fill |
+|----------------|-----------|
+| 1 day | ~14% |
+| 3 days | ~43% |
+| 5 days | ~71% |
+| 7 days | 100% (full ring) |
+
+Once your streak exceeds 7 days, the ring stays full. Your streak number continues climbing in the centre — the ring is a short-term visual motivator, not a cap.

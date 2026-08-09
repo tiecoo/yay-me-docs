@@ -1,0 +1,48 @@
+---
+title: "Daily Reminder Notifications to Log Your Wins"
+sidebarTitle: "Daily Reminders"
+description: "Yay-me sends one browser notification per day to nudge you to log an achievement — only if you've given permission and haven't already been reminded today."
+---
+
+Daily reminder notifications are your gentle accountability partner. Every day you open Yay-me, it checks whether you've already been nudged — and if not, it sends one motivational notification to encourage you to log a win. This once-a-day rhythm helps you build the lasting habit of recognising your progress without overwhelming you with alerts.
+
+## When reminders fire
+
+Yay-me keeps its reminder logic simple and respectful of your time. Here is exactly what happens each time you open the app:
+
+1. **Checks if notifications are supported.** If your browser does not support the Notifications API, no action is taken and the app continues to load normally.
+2. **Checks your permission status.** If you have not yet granted notification permission, Yay-me asks for it. If you deny the prompt — or have previously denied it — no reminder is sent.
+3. **Checks whether you've already been reminded today.** Yay-me records the date of the last notification it sent in your browser's local storage under the key `yay-me:last-notification`. If that date matches today's date, no second notification is sent.
+4. **Sends exactly one notification.** If all checks pass, Yay-me fires a single browser notification containing a randomly selected motivational phrase, then saves today's date so the check is skipped for the rest of the day.
+
+The result: no matter how many times you open the app in a single day, you receive at most **one reminder per calendar day**.
+
+## What the notification says
+
+Each reminder displays a phrase chosen at random from a curated list of eight upbeat, encouraging messages. These phrases are designed to be brief and warm — a quick nudge that celebrates the act of showing up and logging something, however small. Examples include reminders that every step counts, that progress deserves recognition, and that small daily achievements add up to a powerful story over time.
+
+The notification title is **"Yay-me lembra você!"** (Yay-me reminds you!) and the body contains the randomly selected phrase. There is no action button — simply seeing the notification is the cue to open the app and log your win.
+
+<Note>
+  If you've already logged a win today and still receive a notification, that's expected behaviour. The reminder fires once when you open the app based on whether a notification has been sent today — it does not check whether you've already logged an achievement. Think of it as a friendly tap on the shoulder, not a judgement.
+</Note>
+
+## Limitations
+
+Yay-me is a client-side app, which means notifications rely entirely on your browser environment. There are a few honest constraints to be aware of:
+
+<Accordion title="Notifications only fire when the app is open">
+  Yay-me does not run in the background like a native app. A notification is triggered at the moment you open the app in your browser tab or as a PWA. If you never open the app on a given day, no reminder will be sent for that day — there is no scheduled background push.
+</Accordion>
+
+<Accordion title="iOS has limited background notification support">
+  On iOS devices, browser-based notifications face stricter platform restrictions. If you're using Yay-me in Safari on iPhone or iPad, you may not receive a notification unless the app is already open or running as a home-screen PWA. Opening the app manually is the most reliable way to trigger the daily reminder on iOS.
+</Accordion>
+
+<Accordion title="Permission is required">
+  If you have not granted notification permission — or if you've previously blocked it — Yay-me will not send any reminders. The app will still work fully, but you won't receive browser notifications. See [Manage Permissions](/notifications/permissions) to re-enable notifications in your browser settings.
+</Accordion>
+
+<Tip>
+  Install Yay-me as a PWA on your phone for the most reliable daily reminder experience. As a home-screen app, it behaves closer to a native app, improving notification delivery — especially on Android. See [Install Yay-me as a PWA](/pwa-install) for step-by-step instructions.
+</Tip>

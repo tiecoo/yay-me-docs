@@ -1,0 +1,59 @@
+---
+title: "Export a Backup of All Your Achievements"
+sidebarTitle: "Export Backup"
+description: "Download a JSON backup of all your Yay-me achievements to protect your data, switch devices, or migrate to a new browser."
+---
+
+Because Yay-me stores everything in your browser's `localStorage`, your achievements exist in exactly one place: the browser you used to log them. That makes exporting a backup your most important safety net. A backup gives you a portable copy of your entire history — ready to restore if you ever clear your browser data, switch to a new device, or move to a different browser. The export takes one tap and downloads instantly, no account needed.
+
+## How to export
+
+<Steps>
+  <Step title="Open the Yay-me app">
+    Navigate to the Yay-me app in your browser. Scroll to the bottom of the page, past your list of achievements.
+  </Step>
+  <Step title="Tap Exportar Backup">
+    Tap or click the **"Exportar backup"** (Export backup) button in the footer of the app.
+  </Step>
+  <Step title="Save the downloaded file">
+    Your browser immediately downloads a file named **`yay-me-backup-YYYY-MM-DD.json`** (where the date reflects today). No confirmation dialog or loading time — the file is ready the moment you tap the button.
+  </Step>
+</Steps>
+
+## What the file contains
+
+The backup file is a plain JSON array. Each item in the array is one achievement, using the exact same structure that Yay-me uses internally in `localStorage`. Every field is human-readable — you can open the file in any text editor to browse your wins.
+
+Each achievement in the file includes:
+
+| Field       | Description                                                              |
+| ----------- | ------------------------------------------------------------------------ |
+| `id`        | A unique UUID that identifies this achievement across imports and exports.|
+| `text`      | The achievement text you originally typed.                               |
+| `createdAt` | The ISO 8601 timestamp of when you saved the achievement.                |
+| `tags`      | An optional array of category tags (may be absent if AI tagging was off).|
+
+```json yay-me-backup-2025-01-15.json
+[
+  {
+    "id": "3f2a1b4c-8e2d-4a1b-9c3f-1a2b3c4d5e6f",
+    "text": "Finished the monthly report before lunch",
+    "createdAt": "2025-01-15T14:32:00.000Z",
+    "tags": ["trabalho", "produtividade"]
+  },
+  {
+    "id": "7a9b2c1d-...",
+    "text": "Went for a 30-minute walk",
+    "createdAt": "2025-01-14T08:15:00.000Z",
+    "tags": ["saúde", "exercício"]
+  }
+]
+```
+
+<Tip>
+  Export regularly — weekly is a good habit, and always export before clearing your browser cache or site data. Store the file somewhere reliable: a cloud drive, an email to yourself, or an external hard drive all work well.
+</Tip>
+
+<Note>
+  The backup file is a standard JSON file. You can open it in any text editor (Notepad, TextEdit, VS Code) to read, search, or even print your achievements. No special software required.
+</Note>
