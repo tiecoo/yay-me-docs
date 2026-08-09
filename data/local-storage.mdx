@@ -1,5 +1,5 @@
 ---
-title: "How Yay-me Stores Your Data Locally and Privately"
+title: "How Yay-me Stores Your Achievements Locally and Privately"
 sidebarTitle: "Local Storage"
 description: "Yay-me stores all your achievements in your browser's localStorage — no servers, no accounts, no data collection. Your wins stay on your device."
 ---
@@ -17,7 +17,7 @@ Every achievement record contains the following fields:
 | `id`        | `string` (UUID)  | A unique identifier generated at the moment you save the win. |
 | `text`      | `string`         | The achievement text you typed in.                            |
 | `createdAt` | `string` (ISO 8601) | The exact date and time the achievement was saved.         |
-| `tags`      | `string[]`       | Optional — category tags added by the AI celebration feature. |
+| `tags`      | `string[]` *(optional)* | Category tags added by the AI celebration feature. Absent if tagging is off. |
 
 ```json Example achievement record
 {

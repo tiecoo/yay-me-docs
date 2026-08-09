@@ -18,7 +18,7 @@ The whole process is designed to feel instant, then get better in the background
     The modal appears at once with a GIF and a fun phrase picked at random from a curated static list. You're already celebrating before the AI has done anything.
   </Step>
   <Step title="Your text is sent to the AI">
-    Behind the scenes, Yay-me sends your achievement text to a serverless function, which forwards it to an AI model. Your API token is never exposed in the app — it stays server-side on Netlify.
+    Behind the scenes, Yay-me sends your achievement text to a secure server-side service, which forwards it to an AI model. Your API credentials are never exposed in the app — they are kept entirely server-side.
   </Step>
   <Step title="The phrase upgrades — if and when the AI responds">
     When the AI replies (usually within a few seconds), the phrase in the modal smoothly updates to the personalised punchline. The transition is seamless — a subtle animation, no flicker, no spinner.

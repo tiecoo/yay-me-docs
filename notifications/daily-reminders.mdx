@@ -1,7 +1,7 @@
 ---
-title: "Daily Reminder Notifications to Log Your Wins"
+title: "Daily Reminder Notifications — How Yay-me Nudges You"
 sidebarTitle: "Daily Reminders"
-description: "Yay-me sends one browser notification per day to nudge you to log an achievement — only if you've given permission and haven't already been reminded today."
+description: "Yay-me sends one browser notification per day to nudge you to log an achievement — only when you've given permission and haven't been reminded today."
 ---
 
 Daily reminder notifications are your gentle accountability partner. Every day you open Yay-me, it checks whether you've already been nudged — and if not, it sends one motivational notification to encourage you to log a win. This once-a-day rhythm helps you build the lasting habit of recognising your progress without overwhelming you with alerts.
@@ -10,8 +10,8 @@ Daily reminder notifications are your gentle accountability partner. Every day y
 
 Yay-me keeps its reminder logic simple and respectful of your time. Here is exactly what happens each time you open the app:
 
-1. **Checks if notifications are supported.** If your browser does not support the Notifications API, no action is taken and the app continues to load normally.
-2. **Checks your permission status.** If you have not yet granted notification permission, Yay-me asks for it. If you deny the prompt — or have previously denied it — no reminder is sent.
+1. **Checks if notifications are supported.** If your browser does not support browser notifications, no action is taken and the app continues to load normally.
+2. **Checks your permission status.** If you haven't yet granted notification permission, your browser shows a prompt asking whether to allow notifications from Yay-me. If you deny the prompt — or have previously denied it — no reminder is sent.
 3. **Checks whether you've already been reminded today.** Yay-me records the date of the last notification it sent in your browser's local storage under the key `yay-me:last-notification`. If that date matches today's date, no second notification is sent.
 4. **Sends exactly one notification.** If all checks pass, Yay-me fires a single browser notification containing a randomly selected motivational phrase, then saves today's date so the check is skipped for the rest of the day.
 
@@ -19,7 +19,11 @@ The result: no matter how many times you open the app in a single day, you recei
 
 ## What the notification says
 
-Each reminder displays a phrase chosen at random from a curated list of eight upbeat, encouraging messages. These phrases are designed to be brief and warm — a quick nudge that celebrates the act of showing up and logging something, however small. Examples include reminders that every step counts, that progress deserves recognition, and that small daily achievements add up to a powerful story over time.
+Each reminder displays a phrase chosen at random from a curated list of eight upbeat, encouraging messages. The phrases are brief and warm — a quick nudge that celebrates the act of showing up and logging something, however small. They include reminders that every step counts, that progress deserves recognition, and that small daily achievements add up to a powerful story over time. Here are a few examples:
+
+- *"Hoje é um dia de pequenas vitórias e grandes motivos para sorrir!"* — Today is a day of small victories and big reasons to smile!
+- *"Cada passo conta — parabéns por decidir registrar sua conquista!"* — Every step counts — congratulations for choosing to record your achievement!
+- *"Um dia simples se transforma em uma história poderosa com cada pequeno feito."* — A simple day becomes a powerful story with each small act.
 
 The notification title is **"Yay-me lembra você!"** (Yay-me reminds you!) and the body contains the randomly selected phrase. There is no action button — simply seeing the notification is the cue to open the app and log your win.
 

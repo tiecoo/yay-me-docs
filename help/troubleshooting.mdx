@@ -1,7 +1,7 @@
 ---
-title: "Troubleshooting Common Yay-me Issues"
+title: "Yay-me Troubleshooting: Fix Common App Issues Fast"
 sidebarTitle: "Troubleshooting"
-description: "Fix the most common issues with Yay-me — missing achievements, broken GIFs, notification problems, streak resets, and import errors."
+description: "Step-by-step fixes for common Yay-me problems — missing achievements, broken GIFs, notifications, streak resets, and import errors."
 ---
 
 Most issues with Yay-me trace back to browser settings, permissions, or cached data rather than anything wrong with the app itself. This page walks you through the most common problems and exactly what to do about each one.
@@ -29,9 +29,9 @@ Most issues with Yay-me trace back to browser settings, permissions, or cached d
 </Accordion>
 
 <Accordion title="The celebration GIF isn't loading">
-  **What likely happened:** You are offline, the GIPHY API hit a rate limit, or your connection is too slow for the 2-second request timeout.
+  **What likely happened:** You are offline, the GIF service hit a rate limit, or your connection is too slow for the 2-second request timeout.
 
-  **What to do:** In most cases, you do not need to do anything. Yay-me detects when the GIPHY API request fails and automatically swaps in a random GIF from a local fallback collection — so if you see any GIF in the celebration modal, everything is working as intended.
+  **What to do:** In most cases, you do not need to do anything. Yay-me detects when the GIF request fails and automatically swaps in a random GIF from a local fallback collection — so if you see any GIF in the celebration modal, everything is working as intended.
 
   If no GIF appears at all:
 
@@ -50,7 +50,7 @@ Most issues with Yay-me trace back to browser settings, permissions, or cached d
 </Accordion>
 
 <Accordion title="I'm not getting the personalised AI phrase">
-  **What likely happened:** The AI service was temporarily unavailable, the request timed out (the limit is 8 seconds), or your network connection was too slow to reach the server in time.
+  **What likely happened:** The AI service was temporarily unavailable, the request timed out (the limit is 6 seconds), or your network connection was too slow to reach the server in time.
 
   **What to do:** Nothing — this is expected behaviour. Yay-me opens the celebration modal immediately with a phrase from its curated static list. If the AI response arrives within the time limit, it upgrades the phrase in place. If it doesn't, the static phrase stays and your celebration is completely unaffected.
 
@@ -58,7 +58,7 @@ Most issues with Yay-me trace back to browser settings, permissions, or cached d
     The personalised AI phrase is a bonus feature, not a core dependency. The app is deliberately designed so that AI availability never blocks or delays your celebration.
   </Info>
 
-  If you consistently never see an AI phrase even on a fast connection, check that you are using the hosted version of Yay-me (not a local dev build without the required environment token configured).
+  If you consistently never see an AI phrase even on a fast connection, check that you are using the hosted version of Yay-me rather than a local copy that may not have the AI feature enabled.
 </Accordion>
 
 <Accordion title="Notifications are not showing up">
